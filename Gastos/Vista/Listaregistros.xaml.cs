@@ -13,10 +13,22 @@ namespace Gastos.Vista
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Listaregistros : ContentPage
     {
+        VMlista vM;
+        //public Listarregistros()
+        //{
+        //    InitializeComponent();
+        //    BindingContext = new VMlistar(Navigation);
+        //}
         public Listaregistros()
         {
             InitializeComponent();
-            BindingContext = new VMlista(Navigation);
+            vM = new VMlista(Navigation);
+            BindingContext = vM;
+            this.Appearing += async (sender, e) => await Listargastos_Appearing();
+        }
+        private async Task Listargastos_Appearing()
+        {
+            await vM.MostrarRegistros();
         }
     }
 }

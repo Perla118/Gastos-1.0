@@ -35,13 +35,36 @@ namespace Gastos.Datos
                     Presupuesto = parametros.Presupuesto,
                 });
         }
-        public async Task<ObservableCollection<Mgastos>> MostrarRegistros()
+
+        //public async Task<ObservableCollection<Mgastos>> MostrarRegistros()
+        //{
+        //    var data = await Task.Run(() => Cconexion.firebase
+        //         .Child("Gastos")
+        //         .AsObservable<Mgastos>()
+        //         .AsObservableCollection());
+        //    return data;
+        //}
+        // En tu clase Dregistro
+        public async Task<ObservableCollection<double>> MostrarMontos()
         {
             var data = await Task.Run(() => Cconexion.firebase
                  .Child("Gastos")
                  .AsObservable<Mgastos>()
                  .AsObservableCollection());
-            return data;
+
+            return new ObservableCollection<double>(data.Select(gasto => gasto.Monto));
+        }
+
+        public async Task<List<Mgastos>> MostrarRegistros()
+        {
+            return (await Cconexion.firebase.Child("Gastos")
+                .OnceAsync<Mgastos>())
+                .Select(item => new Mgastos
+                {
+                    Concepto = item.Object.Concepto,
+                    Descripcion = item.Object.Descripcion,
+                    Monto = item.Object.Monto
+                }).ToList();
         }
         //public async Task EliminarRegistro(string nroOrden)
         //{
