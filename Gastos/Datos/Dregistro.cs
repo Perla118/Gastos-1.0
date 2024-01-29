@@ -44,7 +44,7 @@ namespace Gastos.Datos
         //         .AsObservableCollection());
         //    return data;
         //}
-        // En tu clase Dregistro
+
         public async Task<ObservableCollection<double>> MostrarMontos()
         {
             var data = await Task.Run(() => Cconexion.firebase
