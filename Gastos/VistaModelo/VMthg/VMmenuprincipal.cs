@@ -29,7 +29,6 @@ namespace Gastos.VistaModelo.VMthg
         }
         #endregion
         #region PROCESOS
-        //Para ir a registrar los gastos
         public async Task IrARegistro()
         {
             await Navigation.PushAsync(new RegistrarGastos());

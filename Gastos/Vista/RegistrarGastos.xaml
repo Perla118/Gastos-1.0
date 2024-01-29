@@ -4,18 +4,13 @@
              x:Class="Gastos.Vista.RegistrarGastos"
              NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
-        <!-- diseño con una fila para el encabezado y otra para el contenido -->
         <Grid RowDefinitions="80,*">
-
-            <!-- fondo degradado -->
             <Grid.Background>
                 <LinearGradientBrush>
                     <GradientStop Color="#BFFF97" Offset="0.0"/>
                     <GradientStop Color="#82FCC1" Offset="0.9"/>
                 </LinearGradientBrush>
             </Grid.Background>
-
-            <!--Pa la barra de regreso-->
             <StackLayout Orientation="Horizontal" Margin="15">
                 <Image Source="https://i.ibb.co/4gThFQR/haciaatrasnegra.png" WidthRequest="40">
                     <Image.GestureRecognizers>
@@ -29,7 +24,6 @@
             <ScrollView Grid.Row="1">
                 <StackLayout x:Name="Panelregistro"
                              Margin="10">
-                    <!-- Marco con fondo oscuro y esquinas redondeadas -->
                     <Frame BackgroundColor="#151515"
                            CornerRadius="15">
                         <StackLayout>

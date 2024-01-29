@@ -5,18 +5,13 @@
              NavigationPage.HasNavigationBar="False">
 
     <ContentPage.Content>
-        <!-- diseño con una fila para el encabezado y otra para el contenido -->
         <Grid RowDefinitions="100,auto">
-
-            <!-- fondo degradado -->
             <Grid.Background>
                 <LinearGradientBrush>
                     <GradientStop Color="#82FCC1" Offset="0.0"/>
                     <GradientStop Color="#82FCC1" Offset="0.9"/>
                 </LinearGradientBrush>
             </Grid.Background>
-
-            <!-- Pa la barra de regreso -->
             <StackLayout Orientation="Horizontal" Margin="15">
                 <Image Source="https://i.ibb.co/4gThFQR/haciaatrasnegra.png" WidthRequest="40">
                     <Image.GestureRecognizers>
@@ -34,24 +29,17 @@
                 x:Name="mostrardetalles">
 
                 <CollectionView.ItemsLayout>
-                    <!-- Cambiado a LinearItemsLayout para mostrar un elemento por fila -->
                     <LinearItemsLayout Orientation="Vertical"/>
                 </CollectionView.ItemsLayout>
-
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <!-- Eliminado el Frame para simplificar -->
                         <StackLayout Margin="10">
                             <Label Text="Concepto:" TextColor="Black" FontSize="17"  FontAttributes="Bold" Margin="1"/>
                             <Label Text="{Binding Concepto}" IsEnabled="False" TextColor="Black" HorizontalOptions="StartAndExpand" FontSize="15" Margin="2"/>
-
                             <Label Text="Descripción:" TextColor="Black" FontSize="17" FontAttributes="Bold" Margin="0"/>
                             <Label Text="{Binding Descripcion}" TextColor="Black" Margin="0"/>
-
                             <Label Text="Monto:" TextColor="Black" FontSize="17" FontAttributes="Bold" Margin="0"/>
                             <Label Text="{Binding Monto}" TextColor="Black" Margin="0"/>
-
-                            <!-- Agregado Label para la fecha -->
                             <Label Text="Fecha de gasto:" TextColor="Black" FontSize="17" FontAttributes="Bold" Margin="0"/>
                             <Label Text="{Binding Fechagasto, StringFormat='dd/MM/yyyy'}" TextColor="Black" Margin="0"/>
 

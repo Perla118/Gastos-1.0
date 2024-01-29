@@ -51,7 +51,6 @@ namespace Gastos.VistaModelo
                 {
                     _presupuesto = value;
                     OnPropertyChanged();
-                    // Lógica para calcular la diferencia y actualizar la UI
                     CalcularDiferenciaPresupuesto();
                 }
             }
@@ -74,15 +73,6 @@ namespace Gastos.VistaModelo
         //        OnPropertyChanged(nameof(Listagastos));
         //    }
         //}
-        //public ObservableCollection<Mgastos> Listagastos
-        //{
-        //    get { return _Listagastos; }
-        //    set
-        //    {
-        //        SetValue(ref _Listagastos, value);
-        //        OnPropertyChanged(nameof(Listagastos));
-        //    }
-        //}
         public async Task MostrarRegistros()
         {
             var function = new Dregistro();
@@ -92,24 +82,9 @@ namespace Gastos.VistaModelo
         #region PROCESOS
         private void CalcularDiferenciaPresupuesto()
         {
-            // Lógica para calcular la diferencia y actualizar la UI
             double diferencia = Presupuesto - Listagastos.Sum(g => g.Monto);
-            // Actualizar una propiedad en el ViewModel para mostrar la diferencia
             DiferenciaPresupuesto = diferencia;
         }
-        //public async Task MostrarGastos()
-        //{
-        //    var function = new Dregistro();
-        //    var registros = await Task.Run(() => function.MostrarRegistros());
-
-        //    //var registros = await function.MostrarRegistros();
-
-        //    // Punto de control: Verificar si los datos se están recuperando correctamente
-        //    Console.WriteLine($"Número de registros: {registros.Count}");
-
-        //    Listagastos = new ObservableCollection<Mgastos>(registros);
-        //    OnPropertyChanged(nameof(Listagastos));
-        //}
         public async Task Regresar()
         {
             await Navigation.PushAsync(new MainPage());
