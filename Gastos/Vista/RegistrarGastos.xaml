@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Gastos.Vista.RegistrarGastos"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <!-- diseño con una fila para el encabezado y otra para el contenido -->
+        <Grid RowDefinitions="80,*">
+
+            <!-- fondo degradado -->
+            <Grid.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="#BFFF97" Offset="0.0"/>
+                    <GradientStop Color="#82FCC1" Offset="0.9"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+
+            <!--Pa la barra de regreso-->
+            <StackLayout Orientation="Horizontal" Margin="15">
+                <Image Source="https://i.ibb.co/4gThFQR/haciaatrasnegra.png" WidthRequest="40">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding Regresarcommand}"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Source="https://i.ibb.co/wQS0vHR/texto.png" HorizontalOptions="CenterAndExpand"/>
+                <Image Source="https://i.ibb.co/stCjphh/ingreso.png"/>
+            </StackLayout>
+
+            <ScrollView Grid.Row="1">
+                <StackLayout x:Name="Panelregistro"
+                             Margin="10">
+                    <!-- Marco con fondo oscuro y esquinas redondeadas -->
+                    <Frame BackgroundColor="#151515"
+                           CornerRadius="15">
+                        <StackLayout>
+
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Concepto:"
+                                       TextColor="White"
+                                       FontSize="18"
+                                       FontAttributes="Bold"
+                                       VerticalOptions="Center"/>
+                                <Entry Placeholder="Concepto del gasto"
+                                       PlaceholderColor="WhiteSmoke"
+                                       HorizontalOptions="FillAndExpand"
+                                       TextColor="WhiteSmoke"
+                                       Text="{Binding Concepto}"/>
+                            </StackLayout>
+
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Descripción:"
+                                       TextColor="White"
+                                       FontSize="17"
+                                       FontAttributes="Bold"
+                                       VerticalOptions="Center"/>
+                                <Entry Placeholder="Ingresa la Descripción"
+                                       PlaceholderColor="WhiteSmoke"
+                                       HorizontalOptions="FillAndExpand"
+                                       TextColor="WhiteSmoke"
+                                       Text="{Binding Descripcion}"/>
+                            </StackLayout>
+
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Monto:"
+                                       TextColor="White"
+                                       FontSize="18"
+                                       FontAttributes="Bold"
+                                       VerticalOptions="Center"/>
+                                <Entry Placeholder="Ingresa el Monto"
+                                       Keyboard="Numeric"
+                                       PlaceholderColor="WhiteSmoke"
+                                       HorizontalOptions="FillAndExpand"
+                                       TextColor="WhiteSmoke"
+                                       Text="{Binding Monto}"/>
+                            </StackLayout>
+
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Fecha:"
+                                 TextColor="White"
+                                 FontSize="18"
+                                 FontAttributes="Bold"
+                                 VerticalOptions="Center"/>
+                                <DatePicker Date="{Binding Fecha}"
+                                 HorizontalOptions="FillAndExpand"
+                                 TextColor="WhiteSmoke" IsEnabled="False"/>
+                            </StackLayout>
+                        </StackLayout>
+
+                    </Frame>
+                    <Button Text="Siguiente" x:Name="Bsiguiente"
+                        Margin="0,70,0,0"
+                        CornerRadius="15"
+                        BackgroundColor="#151515"
+                        TextColor="White"
+                        HorizontalOptions="Center" Command="{Binding Insertarcommand}">
+                        <Button.Triggers>
+                            <DataTrigger TargetType="Button"
+                               Binding="{Binding CamposLlenos}"
+                               Value="False">
+                                <Setter Property="IsEnabled" Value="False" />
+                            </DataTrigger>
+                        </Button.Triggers>
+                    </Button>
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
+

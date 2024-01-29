@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Gastos.Vista.ListaPresupuesto"
+             NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.Content>
+        <!-- diseño con una fila para el encabezado y otra para el contenido -->
+        <Grid RowDefinitions="80,*">
+
+            <!-- fondo degradado -->
+            <Grid.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="#BFFF97" Offset="0.0"/>
+                    <GradientStop Color="#82FCC1" Offset="0.9"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+
+            <!--Pa la barra de regreso-->
+            <StackLayout Orientation="Horizontal" Margin="15">
+                <Image Source="https://i.ibb.co/4gThFQR/haciaatrasnegra.png" WidthRequest="40">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding Regresarcommand}"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Source="https://i.ibb.co/7Rck3qF/Cuenta.png" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" WidthRequest="130"/>
+                <Image Source="https://i.ibb.co/j6tXT1Y/punto-de-venta.png"/>
+            </StackLayout>
+
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

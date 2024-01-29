@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:degradado="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             x:Class="Gastos.MainPage">
+
+    <ScrollView>
+        <Grid RowDefinitions="260,auto,*"
+          BackgroundColor="#333">
+            <degradado:PancakeView Grid.Row="0"
+                               BackgroundColor="#333"
+                               CornerRadius="0,0,30,30">
+                <Frame Margin="15,30,15,30"
+                   CornerRadius="15" HasShadow="False">
+                    <Frame.Background>
+                        <LinearGradientBrush>
+                            <GradientStop Color="#202121"
+                                      Offset="0.1"/>
+                            <GradientStop Color="##232625"
+                                      Offset="1.0"/>
+                        </LinearGradientBrush>
+                    </Frame.Background>
+                    <StackLayout>
+                        <Label
+                           FontAttributes="Bold"
+                           FontSize="25"
+                           HorizontalTextAlignment="Center"
+                           TextColor="#09553E"
+                           />
+                        <Grid ColumnDefinitions="*,100">
+                            <StackLayout Grid.Column="0">
+                                <!--<Image Source="https://i.ibb.co/4Pn6c2W/patron.png"
+                                   HeightRequest="30"
+                                   HorizontalOptions="Start"/>-->
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Registro"
+                                       FontSize="14" TextColor="White"
+                                       FontAttributes="Bold"
+                                       CharacterSpacing="9"
+                                       VerticalOptions="CenterAndExpand"/>
+                                    <Button Text="GASTOS"
+                                        BackgroundColor="#15ECAF"
+                                        TextColor="White"
+                                        CornerRadius="15"
+                                        FontAttributes="Bold"
+                                        FontSize="20"/>
+                                </StackLayout>
+                                
+                                <StackLayout>
+                                    <Label Text="Lleva la cuenta de tus ingresos y egresos con
+                                           esta APP"
+                                       FontAttributes="Bold"
+                                       FontSize="11"
+                                       TextColor="AntiqueWhite"
+                                       />
+                                    <Label
+                                       FontAttributes="Bold"
+                                       FontSize="16"
+                                       TextColor="#00553D"
+                                       x:Name="txtContador"/>
+                                </StackLayout>
+                                
+                            </StackLayout>
+                            <Image Grid.Column="1"
+                               Source="https://i.ibb.co/2tQ6dXW/image.png"
+                               HorizontalOptions="End"
+                               Margin="0,10,0,0"
+                               />
+                        </Grid>
+                    </StackLayout>
+                </Frame>
+            </degradado:PancakeView>
+
+
+
+            <Frame Grid.Row="1"
+               CornerRadius="20"
+               Margin="15,15,15,0"
+               HasShadow="False" BackgroundColor="#202121"
+              >
+
+                <Grid ColumnDefinitions="*,*"
+                  VerticalOptions="Center">
+
+                    <StackLayout Grid.Column="0">
+
+                        <Frame CornerRadius="25"
+                           HasShadow="False"
+                           BackgroundColor="#EEF1FD"
+                           Padding="0"
+                           HorizontalOptions="Center">
+
+
+                            <ImageButton Source="https://i.ibb.co/M29HBDp/verde.png"
+                                     BackgroundColor="Transparent"
+                                     HeightRequest="50"
+                                     HorizontalOptions="Center"
+                                     Padding="8"
+                                     Command="{Binding Presupuestocommand}"/>
+                        </Frame>
+                        <Label Text="Ingresos"
+                           HorizontalOptions="Center"
+                           FontSize="12"
+                           FontAttributes="Bold"
+                           CharacterSpacing="2"/>
+                            <!--VerticalOptions="Center"-->
+                    </StackLayout>
+
+
+                    <StackLayout Grid.Column="1">
+                        <Frame CornerRadius="25"
+                           HasShadow="False"
+                           BackgroundColor="#EEF1FD"
+                           Padding="0"
+                           HorizontalOptions="Center">
+                            <ImageButton Source="https://i.ibb.co/ZdvRD0k/rojo.png"
+                                     BackgroundColor="Transparent"
+                                     HeightRequest="50"
+                                     
+                                     HorizontalOptions="Center"
+                                     Padding="8"
+                                      Command="{Binding IrARegistrocommand}"/>
+                        </Frame>
+
+
+                        <Label Text="Egresos"
+                           HorizontalOptions="Center"
+                           FontSize="12"
+                           FontAttributes="Bold"
+                           CharacterSpacing="2"
+                           VerticalOptions="Center"/>
+                    </StackLayout>
+                    
+
+                    <StackLayout Grid.Column="1" Grid.Row="1">
+                        <Frame CornerRadius="25"
+                         HasShadow="False"
+                         BackgroundColor="#EEF1FD"
+                         Padding="0"
+                         HorizontalOptions="Center">
+                            <ImageButton Source="https://i.ibb.co/X21FCgb/carpet.png"
+                               BackgroundColor="Transparent"
+                             HeightRequest="50"
+                 
+                              HorizontalOptions="Center"
+                              Padding="8"
+                               Command="{Binding Listacommand}"/>
+                        </Frame>
+
+
+                        <Label Text="Registros"
+                            HorizontalOptions="Center"
+                            FontSize="12"
+                            FontAttributes="Bold"
+                             CharacterSpacing="2"
+                            VerticalOptions="Center"/>
+                    </StackLayout>
+
+                    <StackLayout Grid.Column="0" Grid.Row="1">
+                        <Frame CornerRadius="25"
+                            HasShadow="False"
+                            BackgroundColor="#EEF1FD"
+                             Padding="0"
+                             HorizontalOptions="Center">
+                            <ImageButton Source="https://i.ibb.co/5Y4yHzX/document.png"
+                              BackgroundColor="Transparent"
+                              HeightRequest="50"
+                 
+                               HorizontalOptions="Center"
+                              Padding="8"
+                               Command="{Binding ListaPresupuesto}"/>
+                        </Frame>
+                        <Label Text="Cuenta"
+                            HorizontalOptions="Center"
+                            FontSize="12"
+                            FontAttributes="Bold"
+                            CharacterSpacing="2"
+                            VerticalOptions="Center"/>
+                    </StackLayout>
+                </Grid>
+            </Frame>
+        </Grid>
+    </ScrollView>
+</ContentPage>
